@@ -1,14 +1,13 @@
 { "columns":53,
- "image":"..\/..\/assets\/Tilesets\/selial\/packed.png",
- "imageheight":384,
- "imagewidth":848,
+ "image":"packed.png",
+ "imageheight":768,
+ "imagewidth":1696,
  "margin":0,
- "name":"Selial Water",
+ "name":"Water animated",
  "spacing":0,
  "tilecount":1272,
  "tiledversion":"1.9.2",
- "tileheight":16,
- "tilerendersize":"grid",
+ "tileheight":32,
  "tiles":[
         {
          "animation":[
@@ -510,7 +509,7 @@
                 }],
          "id":1010
         }],
- "tilewidth":16,
+ "tilewidth":32,
  "type":"tileset",
  "version":"1.9"
 }

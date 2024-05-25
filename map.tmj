@@ -324,7 +324,7 @@
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4634,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4633, 4634, 4634, 4634, 4634, 4634, 4634, 4634, 4665,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2063, 2063, 3221227372, 1965, 1965, 1965, 3221227478, 2063, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6200, 4633, 4633, 4633, 4633, 4633, 4633, 4633, 4633, 4791, 4792, 4792, 4792, 4792, 4792, 4792, 4792, 4793,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2063, 2063, 3221227372, 1965, 1965, 1965, 3221227478, 2063, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4633, 4633, 4633, 4633, 4633, 4633, 4633, 4633, 4791, 4792, 4792, 4792, 4792, 4792, 4792, 4792, 4793,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3221227372, 1965, 1966, 1797, 2230, 2147485445, 3221227226, 2063, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4601, 4601, 4602, 4603, 4604, 4664, 4664, 4664, 4664, 4664, 4664, 4664, 4664, 4822, 4823, 4823, 4823, 4823, 4823, 4823, 4823, 4824,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1861, 2684357001, 2230, 2009, 2009, 2684356358, 1865, 1804, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4601, 4602, 4603, 4632, 4632, 4633, 4634, 4635, 4633, 4634, 4791, 4792, 4792, 4793, 4792, 4793, 4731, 4823, 4823, 4823, 4823, 4823, 4823, 4823, 4823,
             1947, 1948, 1947, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1861, 2441, 3221227702, 3221227270, 3221227270, 2009, 2684356357, 1857, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4632, 4633, 4634, 4663, 4663, 4664, 4665, 4666, 4664, 4665, 4822, 4823, 4823, 4824, 4823, 4823, 4824, 5089, 1903, 1904, 1904, 1904, 1904, 1904, 1956,
@@ -2002,7 +2002,7 @@
         {
          "columns":35,
          "firstgid":1,
-         "image":"Coolio Raw Tileset.png",
+         "image":"tilesets\/Coolio Raw Tileset.png",
          "imageheight":1600,
          "imagewidth":1120,
          "margin":0,
@@ -2015,7 +2015,7 @@
         {
          "columns":53,
          "firstgid":1751,
-         "image":"packed.png",
+         "image":"tilesets\/packed.png",
          "imageheight":768,
          "imagewidth":1696,
          "margin":0,
@@ -2561,7 +2561,7 @@
         {
          "columns":4,
          "firstgid":3023,
-         "image":"..\/..\/Bilder\/gather\/assets\/Tilesets\/selial\/Forest of Seasons\/spring animations\/spring water sparkles 32 B.png",
+         "image":"tilesets\/spring water sparkles 32 B.png",
          "imageheight":96,
          "imagewidth":128,
          "margin":0,
@@ -2635,7 +2635,7 @@
         {
          "columns":32,
          "firstgid":3035,
-         "image":"..\/..\/Bilder\/gather\/assets\/Tilesets\/winlu\/Winlu Fantasy Tileset - Exterior\/Update Mar 2024\/Fantasy_Tileset_Green_Edition_upgrade\/tilesets\/Fantasy_Outside_A1&A2_32x32_green.png",
+         "image":"tilesets\/Fantasy_Outside_A1&A2_32x32_green.png",
          "imageheight":1535,
          "imagewidth":1024,
          "margin":0,
@@ -3309,20 +3309,7 @@
         {
          "columns":31,
          "firstgid":4539,
-         "image":"..\/..\/Bilder\/gather\/assets\/Tilesets\/winlu\/Winlu Fantasy Tileset - Desert Exterior\/Winlu Fantasy Tileset - Desert Exterior\/Winlu Desert Exterior\/tilesets\/Fantasy_Desert_A1&A2_32px.png",
-         "imageheight":1535,
-         "imagewidth":1023,
-         "margin":0,
-         "name":"Fantasy_Desert_A1&A2_32px",
-         "spacing":0,
-         "tilecount":1536,
-         "tileheight":32,
-         "tilewidth":32
-        }, 
-        {
-         "columns":31,
-         "firstgid":6075,
-         "image":"..\/..\/Bilder\/gather\/assets\/Tilesets\/winlu\/Winlu Fantasy Tileset - Desert Exterior\/Winlu Fantasy Tileset - Desert Exterior\/Winlu Desert Exterior\/tilesets\/Fantasy_Desert_A1&A2_32px.png",
+         "image":"tilesets\/Fantasy_Desert_A1&A2_32px.png",
          "imageheight":1535,
          "imagewidth":1023,
          "margin":0,

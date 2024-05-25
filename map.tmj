@@ -1632,7 +1632,7 @@
          "name":"Plant",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":60,
          "x":0,
          "y":0
@@ -1718,7 +1718,7 @@
          "name":"Plant 2",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":60,
          "x":0,
          "y":0
@@ -1815,7 +1815,7 @@
          "name":"FG Wall",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":60,
          "x":0,
          "y":0
@@ -1901,7 +1901,7 @@
          "name":"FG Object",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":60,
          "x":0,
          "y":0
@@ -1987,7 +1987,7 @@
          "name":"FG Plant",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":60,
          "x":0,
          "y":0

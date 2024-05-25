@@ -85742,7 +85742,7 @@
       "name": "Plant",
       "opacity": 1,
       "type": "tilelayer",
-      "visible": false,
+      "visible": true,
       "width": 60,
       "x": 0,
       "y": 0
@@ -90255,7 +90255,7 @@
       "name": "Plant 2",
       "opacity": 1,
       "type": "tilelayer",
-      "visible": false,
+      "visible": true,
       "width": 60,
       "x": 0,
       "y": 0
@@ -94779,7 +94779,7 @@
       "name": "FG Wall",
       "opacity": 1,
       "type": "tilelayer",
-      "visible": false,
+      "visible": true,
       "width": 60,
       "x": 0,
       "y": 0
@@ -99292,7 +99292,7 @@
       "name": "FG Object",
       "opacity": 1,
       "type": "tilelayer",
-      "visible": false,
+      "visible": true,
       "width": 60,
       "x": 0,
       "y": 0
@@ -103805,7 +103805,7 @@
       "name": "FG Plant",
       "opacity": 1,
       "type": "tilelayer",
-      "visible": false,
+      "visible": true,
       "width": 60,
       "x": 0,
       "y": 0
@@ -103816,7 +103816,7 @@
     {
       "columns": 16,
       "firstgid": 1,
-      "image": "map-chunk-1-1516a147.png",
+      "image": "map-chunk-1-9dbfd8b0.png",
       "imageheight": 512,
       "imagewidth": 512,
       "margin": 0,
@@ -104368,7 +104368,7 @@
     {
       "columns": 16,
       "firstgid": 257,
-      "image": "map-chunk-2-1516a147.png",
+      "image": "map-chunk-2-9dbfd8b0.png",
       "imageheight": 512,
       "imagewidth": 512,
       "margin": 0,
@@ -104383,7 +104383,7 @@
     {
       "columns": 16,
       "firstgid": 513,
-      "image": "map-chunk-3-1516a147.png",
+      "image": "map-chunk-3-9dbfd8b0.png",
       "imageheight": 512,
       "imagewidth": 512,
       "margin": 0,
@@ -104398,7 +104398,7 @@
     {
       "columns": 10,
       "firstgid": 769,
-      "image": "map-chunk-4-1516a147.png",
+      "image": "map-chunk-4-9dbfd8b0.png",
       "imageheight": 320,
       "imagewidth": 320,
       "margin": 0,

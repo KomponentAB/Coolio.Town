@@ -6254,7 +6254,7 @@
         {
          "columns":160,
          "firstgid":10669,
-         "image":"..\/..\/Bilder\/gather\/assets\/Tilesets\/limezu\/Beach WIP\/Beach_Stage_Laser_Machine_32x32.png",
+         "image":"tilesets\/Beach_Stage_Laser_Machine_2_32x32.png",
          "imageheight":288,
          "imagewidth":5120,
          "margin":0,

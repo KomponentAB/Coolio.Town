@@ -6212,7 +6212,7 @@
         {
          "columns":24,
          "firstgid":10621,
-         "image":"C:\/Users\/Stehtopf\/Documents\/GitHub\/CoCreation-WA\/tilesets\/Beach_Seagull_Complete_16x16.png",
+         "image":"tilesets\/Beach_Seagull_Complete_16x16.png",
          "imageheight":64,
          "imagewidth":768,
          "margin":0,

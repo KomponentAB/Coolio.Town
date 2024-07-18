@@ -1712,22 +1712,22 @@
         {
          "name":"mapDescription",
          "type":"string",
-         "value":"tba"
+         "value":"A perfect virtual office to get started with WorkAdventure!"
         }, 
         {
          "name":"mapImage",
          "type":"string",
-         "value":""
+         "value":"office.png"
         }, 
         {
          "name":"mapName",
          "type":"string",
-         "value":"Coolio Villageg"
+         "value":"Office"
         }, 
         {
          "name":"script",
          "type":"string",
-         "value":"script.js"
+         "value":"src\/main.ts"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.11.0",

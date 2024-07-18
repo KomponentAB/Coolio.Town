@@ -20,7 +20,7 @@ WA.room.area.onLeave('roof_upperLeft').subscribe(() => {
 });
 
 WA.room.area.onEnter('roof_upperRight').subscribe(() => {    
-    WA.room.hideLayer('roofs/upperLeft');
+    WA.room.hideLayer('roofs/upperRight');
 });
 WA.room.area.onLeave('roof_upperRight').subscribe(() => {    
     WA.room.showLayer('roofs/upperRight');

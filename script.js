@@ -1,21 +1,27 @@
-// Helper function to manage roof visibility
-function toggleRoofVisibility(areaName, layerName, isVisible) {
-    const action = isVisible ? 'showLayer' : 'hideLayer';
-    WA.room.area[`on${isVisible ? 'Leave' : 'Enter'}`](areaName).subscribe(() => {
-        WA.room[action](layerName);
-    });
-}
+WA.room.area.onEnter('roof_lowerLeft').subscribe(() => {
+    WA.room.hideLayer('roofs/lowerLeft');
+});
+WA.room.area.onLeave('roof_lowerLeft').subscribe(() => {
+    WA.room.showLayer('roofs/lowerLeft');
+});
 
-// Configure visibility for each roof area
-const roofAreas = [
-    { area: 'roof_lowerLeft', layer: 'roofs/lowerLeft' },
-    { area: 'roof_lowerRight', layer: 'roofs/lowerRight' },
-    { area: 'roof_upperLeft', layer: 'roofs/upperLeft' },
-    { area: 'roof_upperRight', layer: 'roofs/upperRight' },
-];
+WA.room.area.onEnter('roof_lowerRight').subscribe(() => {
+    WA.room.hideLayer('roofs/lowerRight');
+});
+WA.room.area.onLeave('roof_lowerRight').subscribe(() => {
+    WA.room.showLayer('roofs/lowerRight');
+});
 
-// Apply visibility settings
-roofAreas.forEach(({ area, layer }) => {
-    toggleRoofVisibility(area, layer, false); // Hide on enter
-    toggleRoofVisibility(area, layer, true);  // Show on leave
+WA.room.area.onEnter('roof_upperLeft').subscribe(() => {    
+    WA.room.hideLayer('roofs/upperLeft');
+});
+WA.room.area.onLeave('roof_upperLeft').subscribe(() => {    
+    WA.room.showLayer('roofs/upperLeft');
+});
+
+WA.room.area.onEnter('roof_upperRight').subscribe(() => {    
+    WA.room.hideLayer('roofs/upperLeft');
+});
+WA.room.area.onLeave('roof_upperRight').subscribe(() => {    
+    WA.room.showLayer('roofs/upperRight');
 });

@@ -1,27 +1,22 @@
-WA.room.area.onEnter('roof_lowerLeft').subscribe(() => {
-    WA.room.hideLayer('roofs/lowerLeft');
-});
-WA.room.area.onLeave('roof_lowerLeft').subscribe(() => {
-    WA.room.showLayer('roofs/lowerLeft');
-});
+// Definiert eine Funktion, um die Wiederholung von Code zu reduzieren
+function toggleRoofVisibility(areaName, action) {
+    const layerName = `roofs/${areaName}`;
+    if (action === 'enter') {
+        WA.room.area.onEnter(areaName).subscribe(() => {
+            WA.room.hideLayer(layerName);
+        });
+    } else if (action === 'leave') {
+        WA.room.area.onLeave(areaName).subscribe(() => {
+            WA.room.showLayer(layerName);
+        });
+    }
+}
 
-WA.room.area.onEnter('roof_lowerRight').subscribe(() => {
-    WA.room.hideLayer('roofs/lowerRight');
-});
-WA.room.area.onLeave('roof_lowerRight').subscribe(() => {
-    WA.room.showLayer('roofs/lowerRight');
-});
+// Definiert eine Liste von Dachbereichen
+const roofAreas = ['lowerLeft', 'lowerRight', 'upperLeft', 'upperRight'];
 
-WA.room.area.onEnter('roof_upperLeft').subscribe(() => {    
-    WA.room.hideLayer('roofs/upperLeft');
-});
-WA.room.area.onLeave('roof_upperLeft').subscribe(() => {    
-    WA.room.showLayer('roofs/upperLeft');
-});
-
-WA.room.area.onEnter('roof_upperRight').subscribe(() => {    
-    WA.room.hideLayer('roofs/upperRight');
-});
-WA.room.area.onLeave('roof_upperRight').subscribe(() => {    
-    WA.room.showLayer('roofs/upperRight');
+// Wendet die Funktion auf jeden Dachbereich an
+roofAreas.forEach(area => {
+    toggleRoofVisibility(area, 'enter');
+    toggleRoofVisibility(area, 'leave');
 });

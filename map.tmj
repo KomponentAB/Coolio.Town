@@ -952,7 +952,7 @@
                         {
                          "name":"jitsiConfig",
                          "type":"string",
-                         "value":"{\n\"breakoutRooms\":{\"hideAddRoomButton\":false}\n}"
+                         "value":"{breakoutRooms = {\n  hideAddRoomButton: false,\n  hideAutoAssignButton: false,\n  hideJoinRoomButton: false,\n}}"
                         }, 
                         {
                          "name":"jitsiInterfaceConfig",

@@ -1617,7 +1617,7 @@
          "name":"roofs",
          "opacity":1,
          "type":"group",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }],
@@ -1651,7 +1651,7 @@
          "value":"script.js"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.11.0",
+ "tiledversion":"1.10.2",
  "tileheight":32,
  "tilesets":[
         {

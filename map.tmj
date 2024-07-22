@@ -952,12 +952,12 @@
                         {
                          "name":"jitsiConfig",
                          "type":"string",
-                         "value":"{\"breakoutRooms\":{\"hideAddRoomButton\":false}}"
+                         "value":"{\n\"breakoutRooms\":{\"hideAddRoomButton\":false}\n}"
                         }, 
                         {
                          "name":"jitsiInterfaceConfig",
                          "type":"string",
-                         "value":"{\"APP_NAME\":\"Test\",\"DISABLE_TRANSCRIPTION_SUBTITLES\": false, \"SHOW_JITSI_WATERMARK\": false,PROVIDER_NAME: 'Test2',}"
+                         "value":"{\"APP_NAME\":\"Test\",\"DEFAULT_BACKGROUND\":\"#FFFF77\"}"
                         }, 
                         {
                          "name":"jitsiNoPrefix",
@@ -967,7 +967,7 @@
                         {
                          "name":"jitsiRoom",
                          "type":"string",
-                         "value":"MeetingRoom"
+                         "value":"TestJitsi"
                         }, 
                         {
                          "name":"jitsiTrigger",

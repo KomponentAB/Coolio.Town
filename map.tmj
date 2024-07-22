@@ -746,7 +746,7 @@
                  "height":93,
                  "id":69,
                  "name":"animated",
-                 "opacity":1,
+                 "opacity":0.98,
                  "type":"tilelayer",
                  "visible":true,
                  "width":60,

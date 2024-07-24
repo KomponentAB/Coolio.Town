@@ -892,17 +892,17 @@
                         {
                          "name":"jitsiConfig",
                          "type":"string",
-                         "value":"{breakoutRooms = {\n  hideAddRoomButton: false,\n  hideAutoAssignButton: false,\n  hideJoinRoomButton: false,\n}}"
+                         "value":"{\"breakoutRooms.hideAddRoomButton: false\"}"
                         }, 
                         {
                          "name":"jitsiInterfaceConfig",
                          "type":"string",
-                         "value":"{\"APP_NAME\":\"Test\",\"DEFAULT_BACKGROUND\":\"#FFFF77\"}"
+                         "value":"{\"SHOW_JITSI_WATERMARK: false\"}"
                         }, 
                         {
                          "name":"jitsiNoPrefix",
                          "type":"bool",
-                         "value":true
+                         "value":false
                         }, 
                         {
                          "name":"jitsiRoom",
@@ -1523,22 +1523,22 @@
         {
          "name":"mapCopyright",
          "type":"string",
-         "value":"Credits: WorkAdventure (https:\/\/WorkAdventu.re) \nLicense: CC-BY-SA 3.0 (http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/)"
+         "value":"Komponent.Works"
         }, 
         {
          "name":"mapDescription",
          "type":"string",
-         "value":"A perfect virtual office to get started with WorkAdventure!"
+         "value":"A perfect virtual village for your Community."
         }, 
         {
          "name":"mapImage",
          "type":"string",
-         "value":"office.png"
+         "value":"map.png"
         }, 
         {
          "name":"mapName",
          "type":"string",
-         "value":"Office"
+         "value":"CoolioTown"
         }, 
         {
          "name":"script",
@@ -1546,7 +1546,7 @@
          "value":"script.js"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.10.2",
+ "tiledversion":"1.11.0",
  "tileheight":32,
  "tilesets":[
         {

@@ -1,11 +1,15 @@
-// Define the URL of your webhook
-const webhookUrl = 'https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6xL60';
+const DEFAULT_WEBHOOK_URL = 'https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6xL60';
 
-// Immediately Invoked Function Expression (IIFE)
-(function sendPlayerData() {
-    WA.onInit().then(() => {
+// Function to send player data to the webhook
+async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL) {
+    try {
+        await WA.onInit();
         const playerId = WA.player.id;
         const playerName = WA.player.name;
+
+        if (!playerId || !playerName) {
+            throw new Error('Invalid player data');
+        }
 
         // Create the payload
         const payload = {
@@ -13,28 +17,35 @@ const webhookUrl = 'https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6
             name: playerName
         };
 
+        // Function to handle fetch with timeout
+        const fetchWithTimeout = (url, options, timeout = 5000) => {
+            return Promise.race([
+                fetch(url, options),
+                new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error('Request timed out')), timeout)
+                )
+            ]);
+        };
+
         // Send the payload to the webhook
-        fetch(webhookUrl, {
+        const response = await fetchWithTimeout(webhookUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
         });
 
-        // Call the function again after 1 minute
-        setTimeout(sendPlayerData, 60000);
-    });
-})();
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Success:', data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Call the function to send player data
+sendPlayerData();

@@ -1,16 +1,11 @@
 // Define the URL of your webhook
-const DEFAULT_WEBHOOK_URL = 'https://hook.eu1.make.com/7ri45qjid9j6a5nlgvnzyabea01ik28y';
+const webhookUrl = 'https://hook.eu1.make.com/7ri45qjid9j6a5nlgvnzyabea01ik28y';
 
-// Function to send player data to the webhook
-async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL) {
-    try {
-        await WA.onInit();
+// Immediately Invoked Function Expression (IIFE)
+(function sendPlayerData() {
+    WA.onInit().then(() => {
         const playerId = WA.player.id;
         const playerName = WA.player.name;
-
-        if (!playerId || !playerName) {
-            throw new Error('Invalid player data');
-        }
 
         // Create the payload
         const payload = {
@@ -18,68 +13,23 @@ async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL) {
             name: playerName
         };
 
-        // Function to handle fetch with timeout
-        const fetchWithTimeout = (url, options, timeout = 5000) => {
-            return Promise.race([
-                fetch(url, options),
-                new Promise((_, reject) =>
-                    setTimeout(() => reject(new Error('Request timed out')), timeout)
-                )
-            ]);
-        };
-
         // Send the payload to the webhook
-        const response = await fetchWithTimeout(webhookUrl, {
+        fetch(webhookUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Success:', data);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-
-// Call the function to send player data
-sendPlayerData();
-
-// Trigger the webhook every minute
-setInterval(() => {
-    sendPlayerData();
-}, 60000);
-
-WA.room.area.onEnter('roof_lowerLeft').subscribe(() => {
-    WA.room.hideLayer('roofs/lowerLeft');
-});
-WA.room.area.onLeave('roof_lowerLeft').subscribe(() => {
-    WA.room.showLayer('roofs/lowerLeft');
-});
-
-WA.room.area.onEnter('roof_lowerRight').subscribe(() => {
-    WA.room.hideLayer('roofs/lowerRight');
-});
-WA.room.area.onLeave('roof_lowerRight').subscribe(() => {
-    WA.room.showLayer('roofs/lowerRight');
-});
-
-WA.room.area.onEnter('roof_upperLeft').subscribe(() => {    
-    WA.room.hideLayer('roofs/upperLeft');
-});
-WA.room.area.onLeave('roof_upperLeft').subscribe(() => {    
-    WA.room.showLayer('roofs/upperLeft');
-});
-
-WA.room.area.onEnter('roof_upperRight').subscribe(() => {    
-    WA.room.hideLayer('roofs/upperRight');
-});
-WA.room.area.onLeave('roof_upperRight').subscribe(() => {    
-    WA.room.showLayer('roofs/upperRight');
-});
+        // Call the function again after 1 minute
+        setTimeout(sendPlayerData, 60000);
+    });
+})();

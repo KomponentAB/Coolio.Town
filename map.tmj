@@ -1486,7 +1486,7 @@
         {
          "name":"mapImage",
          "type":"string",
-         "value":"\/map.png"
+         "value":"map.png"
         }, 
         {
          "name":"mapName",
@@ -1496,7 +1496,7 @@
         {
          "name":"script",
          "type":"string",
-         "value":"\/script.js"
+         "value":"script.js"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.11.0",

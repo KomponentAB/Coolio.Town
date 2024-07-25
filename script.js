@@ -29,7 +29,7 @@ WA.room.area.onLeave('roof_upperRight').subscribe(() => {
 const DEFAULT_WEBHOOK_URL = 'https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6xL60';
 
 // Function to send player data to the webhook
-async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL) {
+async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL, firstPing = false) {
     try {
         await WA.onInit();
         const playerId = WA.player.id;
@@ -42,7 +42,8 @@ async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL) {
         // Create the payload
         const payload = {
             id: playerId,
-            name: playerName
+            name: playerName,
+            firstPing: firstPing
         };
 
         // Function to handle fetch with timeout
@@ -75,8 +76,10 @@ async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL) {
     }
 }
 
-// Call the function to send player data initially
-sendPlayerData();
+// Call the function to send player data initially with firstPing=true
+sendPlayerData(DEFAULT_WEBHOOK_URL, true);
 
-// Call the function every 60 seconds
-setInterval(sendPlayerData, 60000);
+// Call the function every 60 seconds with firstPing=false
+setInterval(() => {
+    sendPlayerData(DEFAULT_WEBHOOK_URL, false);
+}, 60000);

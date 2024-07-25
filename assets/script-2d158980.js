@@ -1,2 +1,0 @@
-const a="https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6xL60";(function e(){WA.onInit().then(()=>{const n=WA.player.id,t=WA.player.name;fetch(a,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:n,name:t})}).then(o=>{if(!o.ok)throw new Error("Network response was not ok");return o.json()}).then(o=>{console.log("Success:",o)}).catch(o=>{console.error("Error:",o)}),setTimeout(e,6e4)})})();
-//# sourceMappingURL=script-2d158980.js.map

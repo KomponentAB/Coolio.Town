@@ -21,7 +21,12 @@ const webhookUrl = 'https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6
             },
             body: JSON.stringify(payload)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             console.log('Success:', data);
         })

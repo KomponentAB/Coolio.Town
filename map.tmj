@@ -880,53 +880,6 @@
          "name":"floorLayer",
          "objects":[
                 {
-                 "height":224,
-                 "id":16,
-                 "name":"jitsiMeetingRoom",
-                 "properties":[
-                        {
-                         "name":"focusable",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"jitsiConfig",
-                         "type":"string",
-                         "value":"{\"breakoutRooms.hideAddRoomButton: false\"}"
-                        }, 
-                        {
-                         "name":"jitsiInterfaceConfig",
-                         "type":"string",
-                         "value":"{\"SHOW_JITSI_WATERMARK: false\"}"
-                        }, 
-                        {
-                         "name":"jitsiNoPrefix",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"jitsiRoom",
-                         "type":"string",
-                         "value":"TestJitsi"
-                        }, 
-                        {
-                         "name":"jitsiTrigger",
-                         "type":"string",
-                         "value":"onaction"
-                        }, 
-                        {
-                         "name":"zoom_margin",
-                         "type":"float",
-                         "value":1
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":192,
-                 "x":864.969696969697,
-                 "y":1369.45454545455
-                }, 
-                {
                  "height":666.849431363127,
                  "id":20,
                  "name":"roof_upperLeft",
@@ -1533,7 +1486,7 @@
         {
          "name":"mapImage",
          "type":"string",
-         "value":"map.png"
+         "value":"\/map.png"
         }, 
         {
          "name":"mapName",
@@ -1543,7 +1496,7 @@
         {
          "name":"script",
          "type":"string",
-         "value":"script.js"
+         "value":"\/script.js"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.11.0",

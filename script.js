@@ -1,5 +1,5 @@
 // Define the URL of your webhook
-const DEFAULT_WEBHOOK_URL = 'https://no-code.cocreation.world/api/v1/webhooks/c80u6fCJgpEPjd855ioNW';
+const DEFAULT_WEBHOOK_URL = 'https://hook.eu1.make.com/7ri45qjid9j6a5nlgvnzyabea01ik28y';
 
 // Function to send player data to the webhook
 async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL) {
@@ -50,3 +50,36 @@ async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL) {
 
 // Call the function to send player data
 sendPlayerData();
+
+// Trigger the webhook every minute
+setInterval(() => {
+    sendPlayerData();
+}, 60000);
+
+WA.room.area.onEnter('roof_lowerLeft').subscribe(() => {
+    WA.room.hideLayer('roofs/lowerLeft');
+});
+WA.room.area.onLeave('roof_lowerLeft').subscribe(() => {
+    WA.room.showLayer('roofs/lowerLeft');
+});
+
+WA.room.area.onEnter('roof_lowerRight').subscribe(() => {
+    WA.room.hideLayer('roofs/lowerRight');
+});
+WA.room.area.onLeave('roof_lowerRight').subscribe(() => {
+    WA.room.showLayer('roofs/lowerRight');
+});
+
+WA.room.area.onEnter('roof_upperLeft').subscribe(() => {    
+    WA.room.hideLayer('roofs/upperLeft');
+});
+WA.room.area.onLeave('roof_upperLeft').subscribe(() => {    
+    WA.room.showLayer('roofs/upperLeft');
+});
+
+WA.room.area.onEnter('roof_upperRight').subscribe(() => {    
+    WA.room.hideLayer('roofs/upperRight');
+});
+WA.room.area.onLeave('roof_upperRight').subscribe(() => {    
+    WA.room.showLayer('roofs/upperRight');
+});

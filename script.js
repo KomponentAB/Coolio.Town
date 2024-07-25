@@ -1,5 +1,5 @@
 // Define the URL of your webhook
-const webhookUrl = 'https://hook.eu1.make.com/7ri45qjid9j6a5nlgvnzyabea01ik28y';
+const webhookUrl = 'https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6xL60';
 
 // Immediately Invoked Function Expression (IIFE)
 (function sendPlayerData() {

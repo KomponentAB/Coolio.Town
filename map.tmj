@@ -922,6 +922,33 @@
                  "width":491.333333333333,
                  "x":176,
                  "y":1814
+                }, 
+                {
+                 "height":64.7610872675255,
+                 "id":25,
+                 "name":"jitsiConference",
+                 "properties":[
+                        {
+                         "name":"jitsiConfig",
+                         "type":"string",
+                         "value":"{\n  \"interfaceConfig\": {\n    \"DISABLE_TRANSCRIPTION_SUBTITLES\": false\n  }\n}"
+                        }, 
+                        {
+                         "name":"jitsiRoom",
+                         "type":"string",
+                         "value":"Conference"
+                        }, 
+                        {
+                         "name":"jitsiTrigger",
+                         "type":"string",
+                         "value":"onaction"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":97.6489399141631,
+                 "x":639.756359799714,
+                 "y":2751.66237482117
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1470,7 +1497,7 @@
          "y":0
         }],
  "nextlayerid":72,
- "nextobjectid":25,
+ "nextobjectid":26,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -1499,7 +1526,7 @@
          "value":"script.js"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.10.2",
+ "tiledversion":"1.11.0",
  "tileheight":32,
  "tilesets":[
         {

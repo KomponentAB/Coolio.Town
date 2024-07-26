@@ -934,6 +934,11 @@
                          "value":"{\"interfaceConfig\":{\"DISABLE_TRANSCRIPTION_SUBTITLES\":false,\"toolbarButtons\":[\"etherpad\",\"closedcaptions\"]}}"
                         }, 
                         {
+                         "name":"jitsiInterfaceConfig",
+                         "type":"string",
+                         "value":"{\"interfaceConfig\":{\"DISABLE_TRANSCRIPTION_SUBTITLES\":false,\"toolbarButtons\":[\"etherpad\",\"closedcaptions\"]}}"
+                        }, 
+                        {
                          "name":"jitsiRoom",
                          "type":"string",
                          "value":"Testroom"

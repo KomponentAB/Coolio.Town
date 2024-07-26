@@ -5977,7 +5977,7 @@
         {
          "columns":4,
          "firstgid":34768,
-         "image":"..\/..\/Pixel\/Other\/Chest_v2\/Chest_ClosetoOpen_Spritesheet.png",
+         "image":"tilesets\/Chest_ClosetoOpen_Spritesheet.png",
          "imageheight":64,
          "imagewidth":128,
          "margin":0,
@@ -5990,7 +5990,7 @@
         {
          "columns":6,
          "firstgid":34776,
-         "image":"..\/..\/Pixel\/Other\/Chest_v2\/Chest_OpenLoop_Spritesheet.png",
+         "image":"tilesets\/Chest_OpenLoop_Spritesheet.png",
          "imageheight":64,
          "imagewidth":192,
          "margin":0,

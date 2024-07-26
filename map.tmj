@@ -931,7 +931,7 @@
                         {
                          "name":"jitsiConfig",
                          "type":"string",
-                         "value":"{\n  \"interfaceConfig\": {\n    \"DISABLE_TRANSCRIPTION_SUBTITLES\": false\n  }\n}"
+                         "value":"{\"interfaceConfig\":{\"DISABLE_TRANSCRIPTION_SUBTITLES\":false,\"toolbarButtons\":[\"etherpad\",\"closedcaptions\"]}}"
                         }, 
                         {
                          "name":"jitsiRoom",

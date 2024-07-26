@@ -1041,7 +1041,7 @@
                         }],
                  "rotation":0,
                  "type":"area",
-                 "visible":false,
+                 "visible":true,
                  "width":31.3706,
                  "x":1088.59938842256,
                  "y":2483.54278153674
@@ -1059,7 +1059,7 @@
          "objects":[],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -1604,7 +1604,7 @@
          "y":0
         }],
  "nextlayerid":73,
- "nextobjectid":29,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "properties":[
         {

@@ -1,30 +1,45 @@
-WA.room.area.onEnter('roof_lowerLeft').subscribe(() => {
+// Function to handle roof layer visibility based on player location
+function handleRoofLayerVisibility() {
+    const relevantAreas = ['roof_lowerLeft', 'roof_lowerRight', 'roof_upperLeft', 'roof_upperRight'];
+
+    // Check if player is in a relevant area when joining the server
+    if (relevantAreas.some(area => WA.player.location === area)) {
+        hideRoofLayers();
+    }
+
+    // Subscribe to area enter events
+    relevantAreas.forEach(area => {
+        WA.room.area.onEnter(area).subscribe(() => {
+            hideRoofLayers();
+        });
+    });
+
+    // Subscribe to area leave events
+    relevantAreas.forEach(area => {
+        WA.room.area.onLeave(area).subscribe(() => {
+            showRoofLayers();
+        });
+    });
+}
+
+// Function to hide roof layers
+function hideRoofLayers() {
     WA.room.hideLayer('roofs/lowerLeft');
-});
-WA.room.area.onLeave('roof_lowerLeft').subscribe(() => {
-    WA.room.showLayer('roofs/lowerLeft');
-});
-
-WA.room.area.onEnter('roof_lowerRight').subscribe(() => {
     WA.room.hideLayer('roofs/lowerRight');
-});
-WA.room.area.onLeave('roof_lowerRight').subscribe(() => {
-    WA.room.showLayer('roofs/lowerRight');
-});
-
-WA.room.area.onEnter('roof_upperLeft').subscribe(() => {    
     WA.room.hideLayer('roofs/upperLeft');
-});
-WA.room.area.onLeave('roof_upperLeft').subscribe(() => {    
-    WA.room.showLayer('roofs/upperLeft');
-});
-
-WA.room.area.onEnter('roof_upperRight').subscribe(() => {    
     WA.room.hideLayer('roofs/upperRight');
-});
-WA.room.area.onLeave('roof_upperRight').subscribe(() => {    
+}
+
+// Function to show roof layers
+function showRoofLayers() {
+    WA.room.showLayer('roofs/lowerLeft');
+    WA.room.showLayer('roofs/lowerRight');
+    WA.room.showLayer('roofs/upperLeft');
     WA.room.showLayer('roofs/upperRight');
-});
+}
+
+// Call the function to handle roof layer visibility
+handleRoofLayerVisibility();
 // Define the URL of your webhook
 const DEFAULT_WEBHOOK_URL = 'https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6xL60';
 
@@ -83,3 +98,40 @@ sendPlayerData(DEFAULT_WEBHOOK_URL, true);
 setInterval(() => {
     sendPlayerData(DEFAULT_WEBHOOK_URL, false);
 }, 60000);
+//////
+
+// Function to set outline color based on player tag
+WA.player.onEnter().subscribe(function(player) {
+    // Assuming you have a way to get the tag of the player
+    var playerTag = getPlayerTag(player); // Replace with your method to get the tag
+    setPlayerOutlineColor(player, playerTag);
+});
+
+// Function to set outline color based on player tag
+function setPlayerOutlineColor(player, tag) {
+    switch (tag) {
+        case "admins":
+            player.setOutlineColor(128, 0, 128); // Purple
+            break;
+        case "teachers":
+            player.setOutlineColor(0, 0, 255); // Blue
+            break;
+        case "students":
+            player.setOutlineColor(255, 255, 0); // Yellow
+            break;
+        default:
+            player.setOutlineColor(0, 0, 0); // Default to black if no tag matches
+    }
+}
+
+// Function to get player tag (this is just a placeholder, implement your own logic)
+function getPlayerTag(player) {
+    // Example logic to determine the tag
+    if (player.name.includes("admin")) {
+        return "admins";
+    } else if (player.name.includes("teacher")) {
+        return "teachers";
+    } else {
+        return "students";
+    }
+}

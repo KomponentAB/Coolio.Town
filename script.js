@@ -38,58 +38,58 @@ function showRoofLayers() {
     WA.room.showLayer('roofs/upperRight');
 }
 
-// Call the function to handle roof layer visibility
-handleRoofLayerVisibility();
-// Define the URL of your webhook
-const DEFAULT_WEBHOOK_URL = 'https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6xL60';
+// Call the function to handle roof layer visibility inside the onInit listener
+WA.onInit().then(() => {
+    handleRoofLayerVisibility();
 
-// Function to send player data to the webhook
-async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL, firstPing = false) {
-    try {
-        await WA.onInit();
-        const playerId = WA.player.id;
-        const playerName = WA.player.name;
+    // Define the URL of your webhook
+    const DEFAULT_WEBHOOK_URL = 'https://apps.taskmagic.com/api/v1/webhooks/Wn8CdqSXOlSSMewy6xL60';
 
-        if (!playerId || !playerName) {
-            throw new Error('Invalid player data');
+    // Function to send player data to the webhook
+    async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL, firstPing = false) {
+        try {
+            const playerId = WA.player.uuid;
+            const playerName = WA.player.name;
+
+            if (!playerId || !playerName) {
+                throw new Error('Invalid player data');
+            }
+
+            // Create the payload
+            const payload = {
+                id: playerId,
+                name: playerName,
+                firstPing: firstPing
+            };
+
+            // Function to handle fetch with timeout
+            const fetchWithTimeout = (url, options, timeout = 5000) => {
+                return Promise.race([
+                    fetch(url, options),
+                    new Promise((_, reject) =>
+                        setTimeout(() => reject(new Error('Request timed out')), timeout)
+                    )
+                ]);
+            };
+
+            // Send the payload to the webhook
+            const response = await fetchWithTimeout(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log('Success:', data);
+        } catch (error) {
+            console.error('Error:', error);
         }
-
-        // Create the payload
-        const payload = {
-            id: playerId,
-            name: playerName,
-            firstPing: firstPing
-        };
-
-        // Function to handle fetch with timeout
-        const fetchWithTimeout = (url, options, timeout = 5000) => {
-            return Promise.race([
-                fetch(url, options),
-                new Promise((_, reject) =>
-                    setTimeout(() => reject(new Error('Request timed out')), timeout)
-                )
-            ]);
-        };
-
-        // Send the payload to the webhook
-        const response = await fetchWithTimeout(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Success:', data);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
 
 // Call the function to send player data initially with firstPing=true
 sendPlayerData(DEFAULT_WEBHOOK_URL, true);
@@ -134,4 +134,4 @@ function getPlayerTag(player) {
     } else {
         return "students";
     }
-}
+}}})

@@ -83,50 +83,6 @@ sendPlayerData(DEFAULT_WEBHOOK_URL, true);
 setInterval(() => {
     sendPlayerData(DEFAULT_WEBHOOK_URL, false);
 }, 60000);
-//////
-
-// Function to set outline color based on player tag
-function setPlayerOutlineColor(player, tag) {
-    switch (tag) {
-        case "admins":
-            player.setOutlineColor(128, 0, 128); // Purple
-            break;
-        case "teachers":
-            player.setOutlineColor(0, 0, 255); // Blue
-            break;
-        case "students":
-            player.setOutlineColor(255, 255, 0); // Yellow
-            break;
-        default:
-            player.setOutlineColor(0, 0, 0); // Default to black if no tag matches
-    }
-}
-
-// Example usage
-WA.room.onEnter('main').subscribe(() => {
-    WA.player.onEnter().subscribe(function(player) {
-        // Assuming you have a way to get the tag of the player
-        var playerTag = getPlayerTag(player); // Replace with your method to get the tag
-        setPlayerOutlineColor(player, playerTag);
-
-        // If user is admin, name it with a dark blue border
-        if (playerTag === "admins") {
-            player.setOutlineColor(27, 42, 65);
-        }
-    });
-});
-
-// Function to get player tag (this is just a placeholder, implement your own logic)
-function getPlayerTag(player) {
-    // Example logic to determine the tag
-    if (player.name.includes("admin")) {
-        return "admins";
-    } else if (player.name.includes("teacher")) {
-        return "teachers";
-    } else {
-        return "students";
-    }
-}
 
 // Call the function to send player data initially with firstPing=true
 sendPlayerData(DEFAULT_WEBHOOK_URL, true);
@@ -135,3 +91,13 @@ sendPlayerData(DEFAULT_WEBHOOK_URL, true);
 setInterval(() => {
     sendPlayerData(DEFAULT_WEBHOOK_URL, false);
 }, 60000);
+////////////////////////////////////////////////
+WA.onInit().then(() => {
+    if (WA.player.tags.includes("admin")) {
+        WA.player.setOutlineColor(128, 0, 128); // Lila
+    } else if (WA.player.tags.includes("teacher")) {
+        WA.player.setOutlineColor(0, 0, 255); // Blau
+    } else if (WA.player.tags.includes("masterclass")) {
+        WA.player.setOutlineColor(255, 255, 0); // Gelb
+    }
+});

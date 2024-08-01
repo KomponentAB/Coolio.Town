@@ -34,6 +34,7 @@ async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL, firstPing = fals
         await WA.onInit();
         const playerId = WA.player.id;
         const playerName = WA.player.name;
+        console.log(playerName); // or use the playerName variable elsewhere in your code
 
         if (!playerId || !playerName) {
             throw new Error('Invalid player data');
@@ -100,4 +101,35 @@ WA.onInit().then(() => {
     } else if (WA.player.tags.includes("masterclass")) {
         WA.player.setOutlineColor(255, 255, 0); // Gelb
     }
+});
+
+WA.onInit().then(async () => {
+    // Check if the player has the "admin" tag
+    const playerName = WA.player.name;
+    var boturl = `https://chat.cocreation.world/cooliobot?playername=${encodeURIComponent(playerName)}`;
+    if (WA.player.tags.includes("admin")) {
+        boturl = `https://chat.cocreation.world/cooliobot?playername=${encodeURIComponent(playerName)}&tag=admin`;
+    } ///if function stops here
+    // Get the player's name
+
+    var coWebSite = undefined;
+    var shouldClose = false;
+    WA.room.area.onEnter('website').subscribe(async () => {
+        
+        coWebSite = await WA.nav.openCoWebSite(boturl);
+        if (shouldClose) {
+            coWebSite.close();
+            coWebSite = undefined;
+            shouldClose = false;
+        }
+    });
+
+    WA.room.area.onLeave('website').subscribe(() => {
+        if (coWebSite !== undefined) {
+            coWebSite.close();
+            coWebSite = undefined;
+        } else {
+            shouldClose = true;
+        }
+    });
 });

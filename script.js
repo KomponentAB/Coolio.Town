@@ -106,9 +106,10 @@ WA.onInit().then(() => {
 WA.onInit().then(async () => {
     // Check if the player has the "admin" tag
     const playerName = WA.player.name;
-    var boturl = `https://chat.cocreation.world/cooliobot?playername=${encodeURIComponent(playerName)}`;
+    const wokaurl = await WA.player.getWokaPicture();
+    var boturl = `https://chat.cocreation.world/cooliobot?playername=${encodeURIComponent(playerName)}&avatar=${encodeURIComponent(wokaurl)}`;
     if (WA.player.tags.includes("admin")) {
-        boturl = `https://chat.cocreation.world/cooliobot?playername=${encodeURIComponent(playerName)}&tag=admin`;
+        boturl = `https://chat.cocreation.world/cooliobot?playername=${encodeURIComponent(playerName)}&avatar=${encodeURIComponent(wokaurl)}&tag=admin`;
     } ///if function stops here
     // Get the player's name
 

@@ -79,21 +79,20 @@ async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL, firstPing = fals
     }
 }
 
+let firstPing = true;
+
 // Call the function to send player data initially with firstPing=true
-sendPlayerData(DEFAULT_WEBHOOK_URL, true);
+sendPlayerData(DEFAULT_WEBHOOK_URL, firstPing);
+
+// Set firstPing to false after the initial call
+firstPing = false;
 
 // Call the function every 60 seconds with firstPing=false
 setInterval(() => {
-    sendPlayerData(DEFAULT_WEBHOOK_URL, false);
+    sendPlayerData(DEFAULT_WEBHOOK_URL, firstPing);
 }, 60000);
 
-// Call the function to send player data initially with firstPing=true
-sendPlayerData(DEFAULT_WEBHOOK_URL, true);
-
-// Call the function every 60 seconds with firstPing=false
-setInterval(() => {
-    sendPlayerData(DEFAULT_WEBHOOK_URL, false);
-}, 60000);
+}});
 ////////////////////////////////////////////////
 WA.onInit().then(() => {
     if (WA.player.tags.includes("admin")) {
@@ -104,7 +103,7 @@ WA.onInit().then(() => {
         WA.player.setOutlineColor(255, 255, 0); // Gelb
     }
 });
-}});
+
 WA.onInit().then(async () => {
     // Check if the player has the "admin" tag
     const playerName = WA.player.name;

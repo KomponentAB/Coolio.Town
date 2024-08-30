@@ -30,68 +30,67 @@ const DEFAULT_WEBHOOK_URL = 'https://apps.taskmagic.com/api/v1/webhooks/udowzdkJ
 
 // Function to send player data to the webhook
 WA.onInit().then(async () => {
-if (!WA.player.tags.includes("bot")) {
-async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL, firstPing = false) {
-    try {
-        await WA.onInit();
-        const playerId = WA.player.id;
-        const playerName = WA.player.name;
-        console.log(playerName); // or use the playerName variable elsewhere in your code
+if (!WA.player.tags.includes("bot") && !WA.player.tags.includes("admin")) {
+    async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL, firstPing = false) {
+        try {
+            await WA.onInit();
+            const playerId = WA.player.id;
+            const playerName = WA.player.name;
+            console.log(playerName); // or use the playerName variable elsewhere in your code
 
-        if (!playerId || !playerName) {
-            throw new Error('Invalid player data');
+            if (!playerId || !playerName) {
+                throw new Error('Invalid player data');
+            }
+
+            // Create the payload
+            const payload = {
+                id: playerId,
+                name: playerName,
+                firstPing: firstPing
+            };
+
+            // Function to handle fetch with timeout
+            const fetchWithTimeout = (url, options, timeout = 5000) => {
+                return Promise.race([
+                    fetch(url, options),
+                    new Promise((_, reject) =>
+                        setTimeout(() => reject(new Error('Request timed out')), timeout)
+                    )
+                ]);
+            };
+
+            // Send the payload to the webhook
+            const response = await fetchWithTimeout(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log('Success:', data);
+        } catch (error) {
+            console.error('Error:', error);
         }
-
-        // Create the payload
-        const payload = {
-            id: playerId,
-            name: playerName,
-            firstPing: firstPing
-        };
-
-        // Function to handle fetch with timeout
-        const fetchWithTimeout = (url, options, timeout = 5000) => {
-            return Promise.race([
-                fetch(url, options),
-                new Promise((_, reject) =>
-                    setTimeout(() => reject(new Error('Request timed out')), timeout)
-                )
-            ]);
-        };
-
-        // Send the payload to the webhook
-        const response = await fetchWithTimeout(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Success:', data);
-    } catch (error) {
-        console.error('Error:', error);
     }
-}
 
-let firstPing = true;
+    let firstPing = true;
 
-// Call the function to send player data initially with firstPing=true
-sendPlayerData(DEFAULT_WEBHOOK_URL, firstPing);
-
-// Set firstPing to false after the initial call
-firstPing = false;
-
-// Call the function every 60 seconds with firstPing=false
-setInterval(() => {
+    // Call the function to send player data initially with firstPing=true
     sendPlayerData(DEFAULT_WEBHOOK_URL, firstPing);
-}, 60000);
 
+    // Set firstPing to false after the initial call
+    firstPing = false;
+
+    // Call the function every 60 seconds with firstPing=false
+    setInterval(() => {
+        sendPlayerData(DEFAULT_WEBHOOK_URL, firstPing);
+    }, 60000);
 }});
 ////////////////////////////////////////////////
 WA.onInit().then(() => {

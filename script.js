@@ -29,6 +29,7 @@ WA.room.area.onLeave('roof_upperRight').subscribe(() => {
 const DEFAULT_WEBHOOK_URL = 'https://apps.taskmagic.com/api/v1/webhooks/udowzdkJjQ2MJUNTpL1A0';
 
 // Function to send player data to the webhook
+WA.onInit().then(async () => {
 if (!WA.player.tags.includes("bot")) {
 async function sendPlayerData(webhookUrl = DEFAULT_WEBHOOK_URL, firstPing = false) {
     try {
@@ -103,7 +104,7 @@ WA.onInit().then(() => {
         WA.player.setOutlineColor(255, 255, 0); // Gelb
     }
 });
-};
+}});
 WA.onInit().then(async () => {
     // Check if the player has the "admin" tag
     const playerName = WA.player.name;

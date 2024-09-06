@@ -1,43 +1,16 @@
 /* #TODO
- Looks like some kind of "Layer Controller"
- Maybe could be refactored into an abstraction or a function,
- since all subscriptions behave in the same way, making the code shorter.
+Pedro made this smarter(Ai sayd: but it's still a bit too long.)
 */
-WA.room.area
-  .onEnter("roof_lowerLeft")
-  .subscribe(() => WA.room.hideLayer("roofs/lowerLeft"));
-WA.room.area
-  .onLeave("roof_lowerLeft")
-  .subscribe(() => WA.room.showLayer("roofs/lowerLeft"));
+WA.onInit().then(async () => {
+  function handleRoofVisibility(layerName) {
+    WA.room.area.onEnter(`roof_${layerName}`).subscribe(() => WA.room.hideLayer(`roofs/${layerName}`));
+    WA.room.area.onLeave(`roof_${layerName}`).subscribe(() => WA.room.showLayer(`roofs/${layerName}`));
+  }
 
-WA.room.area
-  .onEnter("roof_lowerRight")
-  .subscribe(() => WA.room.hideLayer("roofs/lowerRight"));
-WA.room.area
-  .onLeave("roof_lowerRight")
-  .subscribe(() => WA.room.showLayer("roofs/lowerRight"));
+  const roofLayers = ["lowerLeft", "lowerRight", "upperLeft", "upperRight"];
 
-WA.room.area
-  .onEnter("roof_upperLeft")
-  .subscribe(() => WA.room.hideLayer("roofs/upperLeft"));
-WA.room.area
-  .onLeave("roof_upperLeft")
-  .subscribe(() => WA.room.showLayer("roofs/upperLeft"));
-
-WA.room.area
-  .onEnter("roof_upperRight")
-  .subscribe(() => WA.room.hideLayer("roofs/upperRight"));
-WA.room.area
-  .onLeave("roof_upperRight")
-  .subscribe(() => WA.room.showLayer("roofs/upperRight"));
-
-/* #TODO
-This constant is only used insice of the scope below
-It doesn't need to be available in the "global" context of this file
-*/
-// Define the URL of your webhook
-const DEFAULT_WEBHOOK_URL =
-  "https://apps.taskmagic.com/api/v1/webhooks/udowzdkJjQ2MJUNTpL1A0";
+  roofLayers.forEach(layerName => handleRoofVisibility(layerName));
+});
 
 // Function to send player data to the webhook
 WA.onInit().then(async () => {
@@ -52,9 +25,11 @@ WA.onInit().then(async () => {
     By declaring this big function in this scope you're mixing your "behaviour declaration" with the control-flow logic without any real benefit.
     */
     async function sendPlayerData(
-      webhookUrl = DEFAULT_WEBHOOK_URL,
-      firstPing = false
+      firstPing = false,
+
+      
     ) {
+      const WEBHOOK_URL = "https://apps.taskmagic.com/api/v1/webhooks/udowzdkJjQ2MJUNTpL1A0";
       /* #TODO
         Try catch when used like this isn't an anti-pattern, but could be made cleaner with promise chaining.
         (PROMISE.THEN(RES=>RES.JSON()).CATCH(E))
@@ -101,7 +76,7 @@ WA.onInit().then(async () => {
         };
 
         // Send the payload to the webhook
-        const response = await fetchWithTimeout(webhookUrl, {
+        const response = await fetchWithTimeout(WEBHOOK_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -134,14 +109,14 @@ WA.onInit().then(async () => {
     because the parameter is already named in the function true or false could be used directly in here.
     */
     // Call the function to send player data initially with firstPing=true
-    sendPlayerData(DEFAULT_WEBHOOK_URL, firstPing);
+    sendPlayerData(firstPing);
 
     // Set firstPing to false after the initial call
     firstPing = false;
 
     // Call the function every 60 seconds with firstPing=false
     setInterval(() => {
-      sendPlayerData(DEFAULT_WEBHOOK_URL, firstPing);
+      sendPlayerData(firstPing);
     }, 60000);
   }
 });

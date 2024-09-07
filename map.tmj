@@ -1935,7 +1935,7 @@
         {
          "name":"script",
          "type":"string",
-         "value":"script.js"
+         "value":"src\/main.ts"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
